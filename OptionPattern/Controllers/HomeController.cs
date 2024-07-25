@@ -17,7 +17,7 @@ namespace OptionPattern.Controllers
 
         public IActionResult Index()
         {
-            
+            ViewBag.Header= _configuration.GetSection("HeaderSettings")["value"];
             return View();
         }
 
