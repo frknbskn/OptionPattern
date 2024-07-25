@@ -11,7 +11,7 @@ builder.Services.AddSingleton<SmtpSettings>(setting);
 
 var app = builder.Build();
 
-var appSetting = app.Configuration.GetSection("SmtpSettings"); //serviste deðil de middleware'de.
+var appSetting = app.Configuration.GetSection("SmtpSettings").Get<SmtpSettings>(); //serviste deðil de middleware'de.
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
