@@ -4,6 +4,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Configuration.AddJsonFile($"appsettings.Development.json", true, true);
+
+
 //Eðer app.settings içerisinden okuyacaðýnýz deðerler; IServiceCollection içine gönderilecekse; okuma iþlemini burada yapmalýsýnýz.
 //Eðer sadece bir middleware içinde kullanacaksanýz var app = builder.Build(); satýrýndan sonra da kullanabilirsiniz.
 var setting = builder.Configuration.GetSection("SmtpSettings").Get<SmtpSettings>(); //SmtpSettings türünde çevir.
